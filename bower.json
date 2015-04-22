@@ -1,0 +1,22 @@
+{
+  "name": "heartbeat",
+  "version": "0.0.0",
+  "authors": [
+    "Alex Dean <alex@crackpot.org>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "p5.js": "git://github.com/processing/p5.js#0.4.4",
+    "moment": "~2.10.2"
+  }
+}
