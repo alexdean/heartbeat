@@ -24,6 +24,15 @@ function Graph(c) {
       this.lower_right.x,
       this.lower_right.y
     )
+
+    textSize(c.graph.axis_text_size);
+    stroke(0);
+    noFill();
+    textAlign(CENTER);
+
+    for(var i=0; i<=c.graph.hours; i++) {
+      text(i, this.lower_left.x + i*px_per_hour, this.lower_left.y + 12)
+    }
   }
   this.draw_y_axis = function() {
     line(
@@ -32,9 +41,17 @@ function Graph(c) {
       this.lower_left.x,
       this.lower_left.y
     )
+    textSize(c.graph.axis_text_size);
+    stroke(0);
+    noFill();
+    textAlign(RIGHT);
+    for(var i=0; i<=c.graph.max_views; i+=100) {
+      text(i, this.lower_left.x - 2, this.lower_left.y - px_per_view * i)
+    }
   }
   this.draw_date = function(date) {
     textSize(c.date_box.text_size);
+    textAlign(LEFT);
 
     var d = moment(date);
     text(
@@ -56,7 +73,6 @@ function Graph(c) {
 
     stroke(0);
     noFill();
-
     var prev = self.to_xy(series[0]);
     for(var i=1; i<len; i++) {
       var current = self.to_xy(series[i]);
@@ -131,7 +147,8 @@ var config = {
   },
   graph: {
     hours: 24,
-    max_views: 400
+    max_views: 400,
+    axis_text_size: 12
   }
 };
 
